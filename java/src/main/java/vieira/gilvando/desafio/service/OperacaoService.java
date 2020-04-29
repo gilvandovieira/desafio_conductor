@@ -9,6 +9,7 @@ import vieira.gilvando.desafio.model.Transacao;
 import vieira.gilvando.desafio.repository.ContaRepository;
 import vieira.gilvando.desafio.repository.TransacaoRepository;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Service
@@ -23,7 +24,7 @@ public class OperacaoService {
     private Transacao nova() {
         final Transacao transacao = new Transacao();
 
-        transacao.setDataTransacao(new Date());
+        transacao.setDataTransacao(Calendar.getInstance().toString());
         return transacao;
     }
 

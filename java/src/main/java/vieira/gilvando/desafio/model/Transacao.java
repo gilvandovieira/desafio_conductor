@@ -1,16 +1,16 @@
 package vieira.gilvando.desafio.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity(name = "Transacao")
 @Table(name = "Transacoes")
 public class Transacao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double valor;
-    private Date dataTransacao;
+    private String dataTransacao;
 
     @ManyToOne
     @JoinColumn(name = "conta_id")
@@ -40,11 +40,11 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public Date getDataTransacao() {
+    public String getDataTransacao() {
         return dataTransacao;
     }
 
-    public void setDataTransacao(Date dataTransacao) {
+    public void setDataTransacao(String dataTransacao) {
         this.dataTransacao = dataTransacao;
     }
 

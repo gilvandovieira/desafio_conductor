@@ -1,7 +1,6 @@
 package vieira.gilvando.desafio.model;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Table(name = "Contas")
@@ -10,6 +9,7 @@ public class Conta {
 
     @Id
     @Column(name = "conta_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idConta;
 
     @OneToOne
@@ -18,7 +18,7 @@ public class Conta {
     private Double limiteSaqueDiario;
     private boolean flagAtivo;
     private int tipoConta;
-    private Date dataCriacao;
+    private String dataCriacao;
 
     @OneToMany(mappedBy = "conta", fetch = FetchType.LAZY)
     private List<Transacao> transacoes;
@@ -71,11 +71,11 @@ public class Conta {
         this.tipoConta = tipoConta;
     }
 
-    public Date getDataCriacao() {
+    public String getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Date dataCriacao) {
+    public void setDataCriacao(String dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 }

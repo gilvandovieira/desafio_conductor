@@ -1,21 +1,23 @@
 package vieira.gilvando.desafio.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity(name = "Pessoa")
 @Table(name = "Pessoas")
 public class Pessoa {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPessoa;
 
     private String nome;
     private String cpf;
 
-    private Date dataNascimento;
+    private String dataNascimento;
 
     public Long getIdPessoa() {
         return idPessoa;
@@ -41,11 +43,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(final Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

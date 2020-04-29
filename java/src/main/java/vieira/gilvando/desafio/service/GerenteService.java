@@ -8,21 +8,17 @@ import vieira.gilvando.desafio.model.Pessoa;
 import vieira.gilvando.desafio.repository.ContaRepository;
 import vieira.gilvando.desafio.repository.PessoaRepository;
 
-import java.util.Date;
+import java.util.Calendar;
 
 @Service
 public class GerenteService {
 
+    @Autowired
     PessoaRepository pessoaRepository;
+    @Autowired
     ContaRepository contaRepository;
 
-    @Autowired
-    public GerenteService(PessoaRepository p, ContaRepository c) {
-        this.pessoaRepository = p;
-        this.contaRepository = c;
-    }
-
-    public void createPessoa(String nome, String cpf, Date dataNascimento) {
+    public void createPessoa(String nome, String cpf, String dataNascimento) {
         Pessoa pessoa = new Pessoa();
 
         pessoa.setCpf(cpf);
@@ -38,10 +34,9 @@ public class GerenteService {
         conta.setFlagAtivo(true);
         conta.setTipoConta(tipoConta);
         conta.setLimiteSaqueDiario(tipoConta * 2000.0);
-        conta.setDataCriacao(new Date());
+        conta.setDataCriacao(Calendar.getInstance().getTime().toString());
 
         this.contaRepository.save(conta);
-
     }
 
     public void blockAccout(Long idConta) throws ContaNaoEncontradaException {
