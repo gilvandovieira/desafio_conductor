@@ -10,7 +10,6 @@ import vieira.gilvando.desafio.repository.ContaRepository;
 import vieira.gilvando.desafio.repository.TransacaoRepository;
 
 import java.util.Calendar;
-import java.util.Date;
 
 @Service
 public class OperacaoService {
