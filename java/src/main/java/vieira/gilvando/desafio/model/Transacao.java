@@ -14,6 +14,7 @@ public class Transacao {
 
     @ManyToOne
     @JoinColumn(name = "conta_id")
+    @OneToOne /* (fetch = FetchType.LAZY) */
     private Conta conta;
 
     public Long getId() {

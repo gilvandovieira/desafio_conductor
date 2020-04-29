@@ -12,7 +12,7 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idConta;
 
-    @OneToOne
+    @OneToOne /* (fetch = FetchType.LAZY) */
     private Pessoa pessoa;
     private Double saldo;
     private Double limiteSaqueDiario;
