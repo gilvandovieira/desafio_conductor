@@ -1,7 +1,0 @@
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Sappiness-Pajamas-Arose4' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
-
-Droop-Parachute1-Undercut
-
-----------
-
-docker run -d -it --name oracle -P store/oracle/database-enterprise:12.2.0.1
